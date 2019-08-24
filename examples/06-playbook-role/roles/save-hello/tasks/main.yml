@@ -1,0 +1,21 @@
+- name: Test file handling in a custom directory
+  vars:
+    path: '{{ ansible_env.HOME }}/custom/path'
+  block:
+    - name: Create custom directory
+      file:
+        state: directory
+        path: '{{ path }}'
+
+    - name: Create custom file
+      copy:
+        dest: '{{ path }}/hello.txt'
+        content: 'Welcome'
+
+    - name: List the content of {{ path }}
+      raw: ls -la {{ path }}
+      register: systemRoot
+
+    - name: Display only the previous command's standard output using jinja templates
+      debug:
+        msg: '{{ systemRoot.stdout_lines }}'

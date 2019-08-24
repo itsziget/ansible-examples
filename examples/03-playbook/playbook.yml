@@ -1,0 +1,4 @@
+- hosts: remotes
+  tasks:
+    - name: List the content of system root
+      raw: ls -la /

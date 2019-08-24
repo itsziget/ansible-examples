@@ -1,0 +1,9 @@
+- name: Create custom directory
+  file:
+    state: directory
+    path: '{{ path }}'
+
+- name: Create custom file
+  copy:
+    dest: '{{ path }}/hello.txt'
+    content: 'Welcome'

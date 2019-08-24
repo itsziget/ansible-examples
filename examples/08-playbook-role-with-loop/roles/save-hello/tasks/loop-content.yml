@@ -1,0 +1,5 @@
+- name: Include create-file.yml
+  include: create-file.yml
+
+- name: Include debug.yml
+  include: debug.yml

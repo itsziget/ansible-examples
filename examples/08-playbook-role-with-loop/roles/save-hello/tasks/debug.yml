@@ -1,0 +1,7 @@
+- name: List the content of {{ path }}
+  raw: ls -la {{ path }}
+  register: systemRoot
+
+- name: Display only the previous command's standard output using jinja templates
+  debug:
+    msg: '{{ systemRoot.stdout_lines }}'

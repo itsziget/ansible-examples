@@ -1,0 +1,17 @@
+- hosts: remotes
+  tasks:
+    - name: List the content of system root
+      raw: ls -la /
+      register: systemRoot
+
+    - name: Debug the previous command's output
+      debug:
+        var: systemRoot
+
+    - name: Display only the previous command's standard output
+      debug:
+        var: systemRoot.stdout_lines
+
+    - name: Display only the previous command's standard output using jinja templates
+      debug:
+        msg: '{{ systemRoot.stdout_lines }}'

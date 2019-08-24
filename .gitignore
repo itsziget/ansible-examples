@@ -1,0 +1,5 @@
+/.vagrant
+/.idea
+
+# vagrant up creates a log file
+/*.log
