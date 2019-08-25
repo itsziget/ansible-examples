@@ -1,5 +1,6 @@
 /.vagrant
 /.idea
+/*-env
 
 # vagrant up creates a log file
 /*.log

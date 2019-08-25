@@ -15,20 +15,64 @@ You can create your own inventory files if you need: [Ansible: Working with Inve
 
 Each example has a "run.sh" file which contains the command you can execute or create your own command based on the example.
 
+Requirements:
+
+- Linux host machine (Tested on Kubuntu 19.04)
+- [VirtualBox](https://www.virtualbox.org/) (Optional, Tested with VirtualBox 6.0)
+- [Vagrant](https://www.vagrantup.com) (Optional, Tested with Vagrant 2.2.3)
+- [Python](https://www.python.org/) interpreter (Tested with Python 3)
+- [Ansible](https://www.ansible.com/) (Tested with Ansible 2.8.4)
+
+
+## Install Ansible in virtualenv on Ubuntu
+
+Make sure you have python3 and pip3 installed on your machine. Otherwise, install them or use "pip" and "python" instead
+if you want to try it with your default interpreter.
+Open a terminal, go to the project root and run the following commands:
+
+```shell script
+sudo apt install python3 python3-pip
+pip3 install --user --upgrade pip
+```
+
+The above command can change the path of python if they were already installed. Log out and log in again or
+just log in using su:
+
+```shell script
+su - $USER
+```
+
+Or source the .bashrc file if you use Bash shell.
+
+```shell script
+source $HOME/.bashrc
+```
+
+Install the virtualenv module:
+
+```shell script
+pip3 install --user virtualenv
+```
+
+And create the virtual environment:
+
+```shell script
+python3 -m virtualenv ansible-examples-env
+source ansible-examples-env/bin/activate
+```
+
+You can finally install Ansible:
+
+```shell script
+pip3 install -r requirements.txt
+```
+
 ## Create a virtual machine
 
 This step is optional but recommended if you don't have your own test machine or you don't know how to configure Ansible
 to set that as target.
  
 In the project root you will find a simple [Vagrantfile](Vagrantfile) to download and start an Ubuntu 18.04 LTS machine.
-
-Requirements:
-
-- Linux host machine (Tested on Kubuntu 19.04)
-- [VirtualBox](https://www.virtualbox.org/) (Tested with VirtualBox 6.0)
-- [Vagrant](https://www.vagrantup.com) (Tested with Vagrant 2.2.3)
-- [Python](https://www.python.org/) interpreter (Tested with Python 3)
-- [Ansible](https://www.ansible.com/) (Tested with Ansible 2.8.4)
 
 Open a terminal, navigate to the project root and run the following command:
 
