@@ -1,5 +1,50 @@
 # Ansible examples
 
-This project contains [Ansible](https://www.ansible.com/) examples.
+## About the project
 
-More instructions are coming soon.
+This project contains [Ansible](https://www.ansible.com/) examples and a Vagrantfile to create a
+virtual machine. The connection settings of the examples rely on the default SSH connection settings created by vagrant
+for the virtualbox virtual machine.
+
+- **host**: 127.0.0.1
+- **port**: 2222
+- **ssh private key**: $PROJECT_ROOT/.vagrant/machines/default/virtualbox/private_key
+- **user**: vagrant
+
+You can create your own inventory files if you need: [Ansible: Working with Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+
+Each example has a "run.sh" file which contains the command you can execute or create your own command based on the example.
+
+## Create a virtual machine
+
+This step is optional but recommended if you don't have your own test machine or you don't know how to configure Ansible
+to set that as target.
+ 
+In the project root you will find a simple [Vagrantfile](Vagrantfile) to download and start an Ubuntu 18.04 LTS machine.
+
+Requirements:
+
+- Linux host machine (Tested on Kubuntu 19.04)
+- [VirtualBox](https://www.virtualbox.org/) (Tested with VirtualBox 6.0)
+- [Vagrant](https://www.vagrantup.com) (Tested with Vagrant 2.2.3)
+- [Python](https://www.python.org/) interpreter (Tested with Python 3)
+- [Ansible](https://www.ansible.com/) (Tested with Ansible 2.8.4)
+
+Open a terminal, navigate to the project root and run the following command:
+
+```shell script
+vagrant up
+```
+
+## Examples
+
+The examples are in the examples folder. Step into the chosen example folder and execute the run.sh script.
+
+- [01-ad-hoc](examples/01-ad-hoc): The simplest Ad-Hoc command
+- [02-ad-hoc-with-inventory](examples/02-ad-hoc-with-inventory): The simplest Ad-Hoc command with an inventory.yml 
+- [03-playbook](examples/03-playbook): The first and simplest playbook
+- [04-playbook-debug](examples/04-playbook-debug): The simplest playbook with the debug task which displays the standard output of the command
+- [05-playbook-block](examples/05-playbook-block): Use blocks to organize tasks
+- [06-playbook-role](examples/06-playbook-role): Use roles to organize tasks
+- [07-playbook-role-with-include](examples/07-playbook-role-with-include): Use multiple tasks file in a role to organize tasks
+- [08-playbook-role-with-loop](examples/08-playbook-role-with-loop): Run tasks in a loop
