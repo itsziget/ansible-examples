@@ -2,7 +2,7 @@
   vars:
     path: '{{ ansible_env.HOME }}/custom/{{ item }}'
   include: loop-content.yml
-  with_items:
+  loop:
     - path-1
     - path-2
 
