@@ -1,0 +1,22 @@
+- hosts: remotes
+  tasks:
+    - name: Who am I without "become" attribute?
+      command: whoami
+      register: withoutBecome
+
+    - name: Who am I with "become" set to true
+      command: whoami
+      become: true
+      register: withBecomeTrue
+
+    - name: Who am I with "become" set to false
+      command: whoami
+      become: false
+      register: withBecomeFalse
+
+    - name: Debug commands
+      debug:
+        msg:
+          - "Without become: {{ withoutBecome.stdout }}"
+          - "With become set to true: {{ withBecomeTrue.stdout }}"
+          - "With become set to false: {{ withBecomeFalse.stdout }}"
