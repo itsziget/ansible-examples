@@ -14,5 +14,5 @@ ansible-playbook \
 ansible-playbook \
     playbook.yml \
     --inventory inventory/default/inventory.yml \
-    --extra-vars 'location="22. extra vars"'
+    --extra-vars 'location="22. extra vars"' \
     < <(echo)
