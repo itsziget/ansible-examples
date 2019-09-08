@@ -1,0 +1,5 @@
+- name: Include variable-echo.yml
+  vars:
+    location: 20.1. include_role params
+  include_role:
+    name: includeable

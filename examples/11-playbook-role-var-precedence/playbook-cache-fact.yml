@@ -1,0 +1,6 @@
+- hosts: remotes
+  tasks:
+    - name: Cache location fact
+      set_fact:
+        location: 11. cached_facts
+        cacheable: true

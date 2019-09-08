@@ -1,0 +1,4 @@
+- name: Include variable-echo.yml
+  vars:
+    location: 21. include params
+  include: variable-echo.yml

@@ -1,0 +1,21 @@
+- name: Variable echo block
+  vars:
+    location: 16. block vars
+  block:
+
+    - name: Set fact
+      set_fact:
+        location: 19. set_facts
+
+    - name: Include vars
+      include_vars: vars.yml
+
+    - name: Echo variable
+      vars:
+        location: 17. task vars
+      command: echo {{ location }}
+      register: location_output
+
+    - name: Debug output
+      debug:
+        msg: "{{ location_output.stdout_lines }}"

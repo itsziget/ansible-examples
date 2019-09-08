@@ -1,0 +1,15 @@
+- hosts: remotes
+  vars:
+    location: 12. play vars
+  vars_files:
+    - vars_file.yml
+  vars_prompt:
+    - name: location
+      prompt: "Set the location information"
+      private: no
+      default: 13. play vars_prompt
+  roles:
+    - role: precedence-test
+      vars:
+        location: 15.1. role vars in playbook
+      location: 20.1. role params
