@@ -2,7 +2,7 @@
   tasks:
     - name: Declare variables
       vars:
-        name: "David"
+        given_name: "David"
       block:
         - name: Who am I?
           command: whoami
@@ -10,7 +10,7 @@
 
         - name: Say hello
           set_fact:
-            welcome: "Hello {{ name }}"
+            welcome: "Hello {{ given_name }}"
 
         - name: Save variable to cache
           set_fact:
@@ -25,7 +25,7 @@
         msg:
           - "{{ username.stdout }}"
           - "{{ welcome }}"
-          - "{{ name | default(unknown) }}"
+          - "{{ given_name | default(unknown) }}"
           - "{{ cached }}"
 
 
