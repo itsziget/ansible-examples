@@ -1,0 +1,63 @@
+- hosts: remotes
+  tasks:
+    - name: Declare variables
+      vars:
+        name: "David"
+      block:
+        - name: Who am I?
+          command: whoami
+          register: username
+
+        - name: Say hello
+          set_fact:
+            welcome: "Hello {{ name }}"
+
+        - name: Save variable to cache
+          set_fact:
+            cached: "I am cached"
+            cacheable: true
+
+    - name: Include variables
+      include_vars: vars.yml
+
+    - name: Debug variables
+      debug:
+        msg:
+          - "{{ username.stdout }}"
+          - "{{ welcome }}"
+          - "{{ name | default(unknown) }}"
+          - "{{ cached }}"
+
+
+    - name: Debug host vars
+      vars:
+        simple_var: Simple var
+      debug:
+        msg:
+          - "{{ hostvars[inventory_hostname].username.stdout | default(None)}}"
+          - "{{ hostvars[inventory_hostname].welcome | default(None) }}"
+          - "{{ hostvars[inventory_hostname].cached | default(None) }}"
+          - "{{ hostvars[inventory_hostname].unknown | default(None) }}"
+          - "{{ hostvars[inventory_hostname].simple_var | default(None) }}"
+
+
+    - name: Debug facts
+      debug:
+        msg:
+          - "{{ ansible_facts.welcome | default(None) }}"
+          - "{{ ansible_facts.cached | default(None) }}"
+
+    - name: Test environment
+      shell: |
+        echo {{ environment[0].test1 }}
+        echo $test2
+        echo $test1
+      environment:
+        - test1: test1
+          test2: test2
+        - test1: test1 overridden
+      register: environment_test
+
+    - name: Debug environment
+      debug:
+        msg: "{{ environment_test.stdout_lines }}"
