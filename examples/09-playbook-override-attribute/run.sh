@@ -12,3 +12,10 @@ ansible-playbook \
     playbook.yml \
     --inventory inventory.yml \
     --become
+
+echo 'With extra variable ansible_become=true'
+
+ansible-playbook \
+    playbook.yml \
+    --inventory inventory.yml \
+    --extra-vars 'ansible_become=true'
