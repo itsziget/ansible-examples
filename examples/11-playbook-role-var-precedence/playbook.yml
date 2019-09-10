@@ -6,7 +6,7 @@
   vars_prompt:
     - name: location
       prompt: "Set the location information"
-      private: no
+      private: false
       default: 13. play vars_prompt
   roles:
     - role: precedence-test
