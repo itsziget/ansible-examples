@@ -12,4 +12,4 @@
     - role: precedence-test
       vars:
         location: 15.1. role vars in playbook
-      location: 20.1. role params
+      location: 20.2. role params
