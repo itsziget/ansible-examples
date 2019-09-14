@@ -92,3 +92,6 @@ The examples are in the examples folder. Step into the chosen example folder and
 - [06-playbook-role](examples/06-playbook-role): Use roles to organize tasks
 - [07-playbook-role-with-include](examples/07-playbook-role-with-include): Use multiple tasks file in a role to organize tasks
 - [08-playbook-role-with-loop](examples/08-playbook-role-with-loop): Run tasks in a loop
+- [09-playbook-override-parameter](examples/09-playbook-override-parameter): Demonstrate how to override a parameter
+- [10-playbook-variable-precedence](examples/10-playbook-variable-precedence): Demonstrate all the 22 level of variable precedence
+- [11-playbook-variable-scope](examples/11-playbook-variable-scope): Some demonstration of variable scoping and environment variables
