@@ -1,0 +1,32 @@
+- hosts: remotes
+  tasks:
+    - name: Check sourced variables
+      vars:
+        expectedEnvFile: "{{ playbook_dir }}/env.sh"
+        currentEnvFile: "{{ lookup('env', 'CURRENT_ENV_FILE') }}"
+      fail:
+        msg: Missing variables. Run "source {{ expectedEnvFile }}" "{{ currentEnvFile }}" before ansible-playbook
+      when: currentEnvFile != expectedEnvFile
+
+    - name: Test folder creation without ansible module
+      block:
+        - name: Create folder under /tmp
+          shell: mkdir -p /tmp/time-$(date +%s)
+
+        - name: List created folders
+          shell: find /tmp -maxdepth 1 -type d -name time-*
+          register: output
+
+        - name: Display output
+          debug:
+            var: output.stdout_lines
+
+    - name: Whoami test
+      block:
+        - name: Get username
+          shell: whoami
+          register: output
+
+        - name: Display username
+          debug:
+            var: output.stdout_lines
