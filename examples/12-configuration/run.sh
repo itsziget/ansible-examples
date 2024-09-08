@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export ANSIBLE_COMMAND_WARNINGS=true
 export ANSIBLE_BECOME=true
+export ANSIBLE_PYTHON_INTERPRETER="$(cd "$(dirname "$0")" && pwd)/../../.venv/bin/python"
 
 ansible-playbook \
     playbook.yml \

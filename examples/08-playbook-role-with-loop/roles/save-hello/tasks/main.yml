@@ -1,7 +1,7 @@
 - name: "Test file handling in custom directories"
   vars:
     path: '{{ ansible_env.HOME }}/custom/{{ item }}'
-  include: loop-content.yml
+  include_tasks: loop-content.yml
   loop:
     - path-1
     - path-2

@@ -1,9 +1,7 @@
 #!/bin/bash
 
-ansible \
+ansible --connection local \
     all \
-    --inventory 127.0.0.1:2222, \
+    --inventory local, \
     --module-name raw \
-    --args 'ls -la /' \
-    --user vagrant \
-    --private-key '../../.vagrant/machines/default/virtualbox/private_key'
+    --args 'ls -la /'

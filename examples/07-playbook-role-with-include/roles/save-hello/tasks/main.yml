@@ -4,8 +4,8 @@
   block:
 
     - name: Include create-file.yml
-      include: create-file.yml
+      include_tasks: create-file.yml
 
     - name: Include debug.yml
-      include: debug.yml
+      include_tasks: debug.yml
 

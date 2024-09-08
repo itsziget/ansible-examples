@@ -5,7 +5,9 @@
         expectedEnvFile: "{{ playbook_dir }}/env.sh"
         currentEnvFile: "{{ lookup('env', 'CURRENT_ENV_FILE') }}"
       fail:
-        msg: Missing variables. Run "source {{ expectedEnvFile }}" "{{ currentEnvFile }}" before ansible-playbook
+        msg: |
+          Missing variables. Run "source {{ expectedEnvFile }}" before ansible-playbook
+          Current env file: "{{ currentEnvFile }}"
       when: currentEnvFile != expectedEnvFile
 
     - name: Test folder creation without ansible module

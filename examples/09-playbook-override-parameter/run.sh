@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export ANSIBLE_PYTHON_INTERPRETER="$(cd "$(dirname "$0")" && pwd)/../../.venv/bin/python"
+
 echo 'Without --become'
 
 ansible-playbook \
